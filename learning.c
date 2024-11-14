@@ -2,19 +2,33 @@
 #include <stdlib.h>
 #define MAXNAME 50
 
+#include "logger.h"
+
 int getname(char name[]);
+int selectfunc();
+
 
 int main(void) {
+    logger("---------------------------------------------------------- ");
+    logger("################## Starting application ##################");
+    logger("---------------------------------------------------------- ");
+    
     char name[MAXNAME];
 
     printf("What is your name? ");
-    int err = getname(name);
+    getname(name);
+    logger("User logged");
 
-    if(err != 0)
-        printf("Error reading the name: %d", err);
-
+    logger("Printing hello message");
     printf("Hello, %s!\n", name);
+
+    for(;;) {
+        
+    }
+
+    logger("Closing the application")
 }
+
 
 int getname(char name[]) {
     int i,c; 
@@ -28,6 +42,14 @@ int getname(char name[]) {
         ++i;
     }
     //name[i] = '\0';
-        
+    
+    logger("Player name fetched successfully");
     return EXIT_SUCCESS;
+}
+
+
+int selectfunc() {
+	// Here will be a switch-case function that will select what user wants to do.
+	return 0;
+
 }
