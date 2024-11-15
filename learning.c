@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAXNAME 50
 
 #include "logger.h"
+
+#define MAXNAME 50
 
 int getname(char name[]);
 int selectfunc();
@@ -22,11 +23,19 @@ int main(void) {
     logger("Printing hello message");
     printf("Hello, %s!\n", name);
 
+    char key;
+
     for(;;) {
-        
+        logger("Entering the main loop");
+        key = getchar();
+
+        if(key == 'q')
+            break;
+
+        printf("%d", key);
     }
 
-    logger("Closing the application")
+    logger("Closing the application");
 }
 
 
